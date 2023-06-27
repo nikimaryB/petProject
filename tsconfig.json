@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/", // куда идет сборка, но в данном случае не важно, так как вебпак
+    "noImplicitAny": true, // подсвечивает места без типа
+    "module": "ESNext", // обычно es6 или ESNext
+    "target": "es5", // в какую спецификаю компилить
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true, // позволяет работать с пакетами, которые используют comomn js,
+                             // как с обычными пакетами с помощью import (require() module.export) = comon js
+    "allowSyntheticDefaultImports": true, // позволяет импортить по дефолту все из пакета
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
