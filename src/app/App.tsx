@@ -1,9 +1,8 @@
 import './styles/index.scss'
-import { Link } from 'react-router-dom'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { AppRouter } from './providers/Router'
-import { AppRoutes, RoutePath } from 'shared/config/RouteConfig/RouteConfig'
+import { Navbar } from 'widgets/Navbar';
 
 
 export default function App() {
@@ -11,10 +10,9 @@ export default function App() {
   return (
     <>
     <div className={classNames('app', {}, [theme])}>
-      <Link to={RoutePath[AppRoutes.ABOUT]}>AboutPage</Link>
-      <Link to={RoutePath[AppRoutes.MAIN]}>MainPage</Link>
-      <button onClick={toggleTheme}>change Theme</button>
+      <Navbar/>
       <AppRouter/>
+      <button onClick={toggleTheme}>change Theme</button>
     </div>
     </>
   )
