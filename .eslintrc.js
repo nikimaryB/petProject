@@ -11,7 +11,8 @@ module.exports = {
     'extends': [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:react/recommended'
+        'plugin:react/recommended',
+        'plugin:i18next/recommended'
     ],
     'overrides': [
         {
@@ -33,7 +34,8 @@ module.exports = {
     },
     'plugins': [
         '@typescript-eslint',
-        'react'
+        'react',
+        'i18next'
     ],
     'rules': {
         'indent': ['error', 4],
@@ -46,5 +48,6 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'react/button-has-type': 'warn',
+        'i18next/no-literal-string': ['warn', {'markupOnly': true}]
     }
 };
