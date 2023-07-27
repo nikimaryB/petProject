@@ -49,6 +49,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'react/button-has-type': 'warn',
-        'i18next/no-literal-string': ['warn', {'markupOnly': true}]
+        'i18next/no-literal-string': ['warn', {'markupOnly': true}],
+        // 'max-len': ['error', {'ignoreComments': true}],
     }
 };
