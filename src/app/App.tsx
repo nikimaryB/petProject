@@ -13,7 +13,7 @@ export default function App() {
     return (
         <>
             <div className={classNames('app', {}, [theme])}>
-                <Suspense fallback={'...loading'}>
+                <Suspense fallback={<div>...loading</div>}>
                     <Navbar/>
                     <div className='content-page'>
                         <Sidebar/>
