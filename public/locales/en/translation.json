@@ -1,6 +1,9 @@
 {
   "Язык": "En",
   "Главная страница линк": "Main page",
-  "О сайте линк": "About" ,
-  "NotFoundPage": "Page not Found"
+  "О сайте линк": "About",
+  "NotFoundPage": "Page not Found",
+  "vklyuchit-oshibku": "showError",
+  "refresh": "refresh",
+  "something-went-wrong-please-reload-the-page": "Something went wrong, please reload the page"
 }
