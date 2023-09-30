@@ -2,8 +2,8 @@
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
-
 import type {Config} from '@jest/types'; // нагуглил, дока врет(
+import path from 'path';
 
 const config: Config.InitialOptions = {
     // All imported modules in your tests should be mocked automatically
@@ -27,6 +27,7 @@ const config: Config.InitialOptions = {
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+    setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
 
     // The test environment that will be used for testing
     testEnvironment: 'jsdom',
@@ -37,8 +38,15 @@ const config: Config.InitialOptions = {
     ],
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: [
-        'node_modules'
+        'node_modules', 'src'
     ],
+    modulePaths: [
+        '<rootDir>src',
+    ],
+    moduleNameMapper: {
+        '\\.(s?css)$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+    },
     // An array of file extensions your modules use
     moduleFileExtensions: [
         'js',
