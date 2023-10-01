@@ -9,12 +9,7 @@ module.exports = {
         'es2021': true,
         jest: true
     },
-    'extends': [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:react/recommended',
-        'plugin:i18next/recommended'
-    ],
+    'extends': ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react/recommended', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
     'overrides': [
         {
             'env': {
@@ -52,7 +47,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'react/button-has-type': 'warn',
-        'i18next/no-literal-string': ['warn', {'markupOnly': true, ignoreAttribute:['data-testid']}],
+        'i18next/no-literal-string': ['warn', {'markupOnly': true, ignoreAttribute:['data-testid', 'to']}],
         // 'max-len': ['error', {'ignoreComments': true}],
     }
 };
