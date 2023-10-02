@@ -1,7 +1,8 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 // import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { buildCssLoader } from './loaders/buildCssLoader';
+
+import { BuildCssLoader } from './loaders/buildCssLoader';
 
 // function buildCssLoader (isDev: boolean) {
 //     return {
@@ -59,7 +60,7 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
         }
     };
   
-    const cssLoader = buildCssLoader(isDev);
+    const cssLoader = BuildCssLoader(isDev);
     // если без TS, но нужен будет лоудер для jsx babel-loader
     const typescriptLoader =     {
         test: /\.tsx?$/,
