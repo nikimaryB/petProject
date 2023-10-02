@@ -1,7 +1,32 @@
 import webpack from 'webpack';
 import { BuildPath } from '../build/types/config';
 import path from 'path';
-import { buildCssLoader } from '../build/loaders/buildCssLoader';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+// import { buildCssLoader } from '../build/loaders/buildCssLoader';
+
+//webpak throw error in git if i do import(
+function buildCssLoader (isDev: boolean) {
+    return {
+        test: /\.s[ac]ss$/i,
+        use: [
+            // Creates `style` nodes from JS strings
+            isDev? 'style-loader': MiniCssExtractPlugin.loader,
+            // "style-loader", //вместо него мини css? чтобы стили были отдельными файликами
+            // Translates CSS into CommonJS
+            {
+                loader:'css-loader',
+                options:{
+                    modules:{
+                        auto: (resPath: string) => Boolean(resPath.includes('module.')),
+                        localIdentName: isDev? '[path][name]__[local]': '[hash:base64:8]'
+                    },
+                }
+            },  
+            // Compiles Sass to CSS
+            'sass-loader',
+        ],
+    };
+}
 
 export default ({config}: {config: webpack.Configuration}) => {
     const paths: BuildPath ={
