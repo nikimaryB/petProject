@@ -16,8 +16,10 @@
     "allowSyntheticDefaultImports": true, // позволяет импортить по дефолту все из пакета
   },
   "ts-node": {
+    "esm": true,
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "CommonJS",
+      "moduleResolution": "NodeNext",
     }
   },
   "include": [
