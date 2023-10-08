@@ -34,7 +34,8 @@ module.exports = {
     'plugins': [
         '@typescript-eslint',
         'react',
-        'i18next'
+        'i18next',
+        'react-hooks',
     ],
     'rules': {
         'indent': ['error', 4],
@@ -49,5 +50,7 @@ module.exports = {
         'react/button-has-type': 'warn',
         'i18next/no-literal-string': ['warn', {'markupOnly': true, ignoreAttribute:['data-testid', 'to']}],
         // 'max-len': ['error', {'ignoreComments': true}],
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'error' // Checks effect dependencies
     }
 };

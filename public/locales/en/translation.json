@@ -5,5 +5,6 @@
   "NotFoundPage": "Page not Found",
   "vklyuchit-oshibku": "showError",
   "refresh": "refresh",
-  "something-went-wrong-please-reload-the-page": "Something went wrong, please reload the page"
+  "something-went-wrong-please-reload-the-page": "Something went wrong, please reload the page",
+  "voiti": "LogIn"
 }
