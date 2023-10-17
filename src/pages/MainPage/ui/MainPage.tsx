@@ -1,4 +1,5 @@
 import { ButtonError } from 'app/providers/ErrorBoundary';
+import { Counter } from 'entities/Counter';
 import { useTranslation } from 'react-i18next';
 
 export default function MainPage() {
@@ -8,6 +9,7 @@ export default function MainPage() {
         <>
             <div>{t('Главная страница')}</div>
             <ButtonError/>
+            <Counter/>
         </>
     );
 }
