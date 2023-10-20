@@ -50,7 +50,8 @@ const config: Config.InitialOptions = {
     ],
     moduleNameMapper: {
         '\\.(s?css)$': 'identity-obj-proxy',
-        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        'axios': 'axios/dist/node/axios.cjs'
     },
     // An array of file extensions your modules use
     moduleFileExtensions: [

@@ -52,6 +52,7 @@ module.exports = {
         // 'max-len': ['error', {'ignoreComments': true}],
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
-        'react/display-name': 'off'
+        'react/display-name': 'off',
+        'no-console': ['warn', { allow: ['warn', 'error'] }]
     }
 };
