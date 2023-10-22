@@ -6,5 +6,8 @@
   "vklyuchit-oshibku": "showError",
   "refresh": "refresh",
   "something-went-wrong-please-reload-the-page": "Something went wrong, please reload the page",
-  "voiti": "LogIn"
+  "voiti": "LogIn",
+  "Auth Form": "Auth Form",
+  "Auth Error": "Wrong login or password",
+  "logOut": "LogOut"
 }

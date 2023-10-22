@@ -4,6 +4,10 @@ import { useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User/model/selectors/getUserAuthData';
+import { Text } from 'shared/ui/Text/Text';
+import { userAction } from 'entities/User';
 
 interface NavbarProps {
   className?: string,
@@ -12,6 +16,7 @@ interface NavbarProps {
 export const  Navbar = ({className}: NavbarProps) => {
 
     const [isAuthOpen, setAuthOpen] = useState(false);
+    const dispatch = useDispatch();
 
     const {t} = useTranslation();
 
@@ -23,6 +28,20 @@ export const  Navbar = ({className}: NavbarProps) => {
         setAuthOpen(true);
     },[]);
 
+    const onLogOut = useCallback( () => {
+        dispatch(userAction.logout());
+    }, [dispatch]);
+
+    const user = useSelector(getUserAuthData);
+
+    if(user) {
+        return(
+            <div className={classNames(cls.Navbar, {}, [className])}>
+                <Text title={user?.username}/>
+                <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogOut} className={cls.links} >{t('logOut')}</Button>
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>

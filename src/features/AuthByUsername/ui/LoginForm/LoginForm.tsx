@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginAction } from '../../model/slice/loginSlice';
 import { memo, useCallback } from 'react';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
-import { loginByUsername } from '../../model/services/loginByUsername';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 
 interface LoginFormProps {
@@ -33,7 +34,8 @@ export const LoginForm = memo( ({className}: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            {error && <div>{error}</div>}
+            <Text title={t('Auth Form')}/>
+            {error && <Text text={t(error)} theme={TextTheme.ERROR} />}
             <Input 
                 value={username}
                 autofocus

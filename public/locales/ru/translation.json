@@ -6,5 +6,8 @@
   "vklyuchit-oshibku": "Показать ошибку",
   "refresh": "обновить",
   "something-went-wrong-please-reload-the-page": "Что-то пошло не так, перезагрузите страницу",
-  "voiti": "Войти"
+  "voiti": "Войти",
+  "Auth Form": "Форма авторизации",
+  "Auth Error": "Не верный логин или пароль",
+  "logOut": "Выйти"
 }
