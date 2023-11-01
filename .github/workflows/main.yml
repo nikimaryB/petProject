@@ -28,5 +28,5 @@ jobs:
         run: npm run eslint:scss
         if: always()      
       - name: unit testing
-        run: npm run test:unit
+        run: npm test
         if: always()      
