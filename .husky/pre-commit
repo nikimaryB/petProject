@@ -3,4 +3,4 @@
 
 npm run eslint:ts
 npm run eslint:scss
-npm run test:unit
+npm test
