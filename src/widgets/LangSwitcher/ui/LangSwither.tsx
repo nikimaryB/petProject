@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { memo } from 'react';
 
 
 interface LangSwitherProps {
@@ -8,7 +9,7 @@ interface LangSwitherProps {
 }
 
 
-export const  LangSwither = ({className}: LangSwitherProps) => {
+export const  LangSwither = memo(({className}: LangSwitherProps) => {
     const [t, i18n] = useTranslation();
   
     const swithLang = () => {
@@ -23,4 +24,4 @@ export const  LangSwither = ({className}: LangSwitherProps) => {
             {t('Язык')}
         </Button>
     );
-};
+});

@@ -7,7 +7,7 @@ function AppRouter() {
     return (
         <Suspense fallback={<LoaderPage/>}>
             <Routes>
-                {RouteConfig.map( ({element, path}) => (
+                {Object.values(RouteConfig).map(({ element, path }) => (
                     <Route 
                         key={path} 
                         element={
