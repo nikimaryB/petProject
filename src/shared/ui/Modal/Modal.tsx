@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import cls from  './Modal.module.scss';
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { Portal } from '../Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 
@@ -28,13 +28,13 @@ export const Modal = (props: ModalProps) => {
     const [isMounted, setIsMountes] = useState(false);
     const { theme } = useTheme();
 
-    const timeRef = useRef<ReturnType <typeof setTimeout>>();
+    const timeRef = useRef() as MutableRefObject<ReturnType <typeof setTimeout>>;
 
     useEffect(()=>{
         if(isOpen) setIsMountes(true);
     },[isOpen]);
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
