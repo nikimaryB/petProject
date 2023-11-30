@@ -1,14 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import cls from  './Input.module.scss';
 import React, { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     autofocus?: boolean;
+    readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -19,12 +20,15 @@ export const Input = memo((props: InputProps) => {
         type = 'text',
         placeholder,
         autofocus,
+        readonly,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         ...otherProps
     } = props;
     const ref = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
+
+    const iscaretVisible = isFocused && !readonly;
 
     useEffect(()=>{
         if(autofocus){
@@ -51,8 +55,12 @@ export const Input = memo((props: InputProps) => {
         setCaretPosition(e?.target?.selectionStart || 0);
     };
 
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+    };
+
     return (
-        <div className={classNames(cls.InputWrapper, {}, [className])}>
+        <div className={classNames(cls.InputWrapper, mods, [className])}>
             {placeholder && 
                 <div className={cls.placeholder}>
                     {placeholder + '>'}
@@ -68,10 +76,11 @@ export const Input = memo((props: InputProps) => {
                     onFocus={onFocus}
                     onBlur={onBlure}
                     onSelect={onSelect}
+                    readOnly={readonly}
                     // eslint-disable-next-line react/jsx-props-no-spreading
                     {...otherProps}
                 />
-                {isFocused && <span 
+                {iscaretVisible && <span 
                     className={cls.caret}
                     style={{left:`${caretPosition * 7.1}px`}}
                 />}

@@ -9,5 +9,7 @@
   "voiti": "LogIn",
   "Auth Form": "Auth Form",
   "Auth Error": "Wrong login or password",
-  "logOut": "LogOut"
+  "logOut": "LogOut",
+  "Edit": "Edit",
+  "Profile": "Profile"
 }

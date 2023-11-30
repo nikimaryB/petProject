@@ -1,8 +1,13 @@
 {
+  "name": "name",
+  "lastname": "lastname",
   "Profile": "Profile",
   "Edit": "Edit",
-  "profile": {
-    "name": "name",
-    "lastname": "lastname"
-  }
+  "Age": "Age",
+  "City": "City",
+  "Save": "Save",
+  "Cancel": "Cancel",
+  "Username": "Username",
+  "Currency": "Currency",
+  "Country": "Country"
 }
