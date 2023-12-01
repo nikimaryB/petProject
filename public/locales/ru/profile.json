@@ -9,5 +9,10 @@
   "Save": "Сохранить",
   "Username": "Имя пользователя",
   "Currency": "Валюта",
-  "Country": "Страна"
+  "Country": "Страна",
+  "Server Error": "Ошибка сервера",
+  "Age Error": "Ошибка возраста",
+  "Country Error": "Ошибка страны",
+  "First or Lastname Error": "Ошибка имени или фамилии",
+  "No Data Error": "Ошибка отсутствия данных"
 }

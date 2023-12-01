@@ -1,4 +1,4 @@
-import { ProfileCard, fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileAction, profileReducer } from 'entities/Profile';
+import { ProfileCard, ValidateProfileError, fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileAction, profileReducer } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -7,8 +7,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-// import cls from  './ProfilePage.module.scss';
-// import { useTranslation } from 'react-i18next';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
   
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -19,13 +19,23 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = ({className}: ProfilePageProps) => {
-    // const [t] = useTranslation();
+    const [t] = useTranslation('profile');
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
-     
+    const validateErrors = useSelector(getProfileValidateErrors);
+    
+    const validateErrorTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Server Error'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Age Error'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Country Error'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('First or Lastname Error'),
+        [ValidateProfileError.NO_DATA]: t('No Data Error'),
+    };
+
+
     useEffect(() => {
         dispatch(fetchProfileData());
     },[dispatch]);
@@ -68,6 +78,9 @@ const ProfilePage = ({className}: ProfilePageProps) => {
 
             <div className={classNames('cls.ProfilePage', {}, [className])}>
                 <ProfilePageHeader/>
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslates[err]}/>
+                ) )}
                 <ProfileCard 
                     data={formData}
                     isLoading={isLoading}

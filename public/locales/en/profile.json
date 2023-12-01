@@ -9,5 +9,10 @@
   "Cancel": "Cancel",
   "Username": "Username",
   "Currency": "Currency",
-  "Country": "Country"
+  "Country": "Country",
+  "Server Error": "Server Error",
+  "Age Error": "Age Error",
+  "Country Error": "Country Error",
+  "First or Lastname Error": "First or Lastname Error",
+  "No Data Error": "No Data Error"
 }
