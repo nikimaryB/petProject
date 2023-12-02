@@ -21,7 +21,7 @@ export const loginByUsername = createAsyncThunk<
                 const response = await extra.api.post<User>('/login', authData);
 
                 if(!response.data){
-                    throw new Error;
+                    throw new Error();
                 }
                 localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
                 dispatch(userAction.setAuthData(response.data));

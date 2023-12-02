@@ -1,4 +1,5 @@
-import webpack from 'webpack';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import webpack, { DefinePlugin } from 'webpack';
 import { BuildPath } from '../build/types/config';
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -52,16 +53,20 @@ export default ({config}: {config: webpack.Configuration}) => {
         use: ['@svgr/webpack'],
     });
 
-    // config!.module!.rules.push({
-    //     test: /\.svg$/,
-    //     use: ['@svgr/webpack'],
-    // });
-    // config!.module!.rules.push(BuildCssLoader(true));
+    
+    //@ts-ignore
+    config!.module!.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    });
+    //@ts-ignore
+    config!.module!.rules.push(BuildCssLoader(true));
 
-    // config!.plugins!.push(new DefinePlugin({
-    //     __IS_DEV__: JSON.stringify(true),
-    //     __API__: JSON.stringify(''),
-    // }));
+    config!.plugins!.push(new DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+        __API__: JSON.stringify(''),
+        __PROJECT__: JSON.stringify('storybook'),
+    }));
 
     return config;
 };

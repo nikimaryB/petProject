@@ -16,8 +16,11 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
     api: jest.MockedFunctionDeep<AxiosStatic>;
     navigate: jest.MockedFn<any>;
 
-    constructor(actionCreator: AsyncThunkType<Return, Arg, RejectedValue>){
-        this.getState = jest.fn();
+    constructor(
+        actionCreator: AsyncThunkType<Return, Arg, RejectedValue>,
+        state?: DeepPartial<StateSchema>
+    ){
+        this.getState = jest.fn(()=> state as StateSchema);
         this.dispatch = jest.fn();
         this.actionCreator = actionCreator;
         this.api = mockAxios;
