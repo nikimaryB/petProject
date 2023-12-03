@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BabelLoader } from '../loaders/babelLoader';
 
 // import { BuildCssLoader } from './loaders/buildCssLoader';
 
@@ -27,8 +28,8 @@ function BuildCssLoader (isDev: boolean) {
     };
 }
 
-export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
-
+export function buildLoaders( options: BuildOptions): webpack.RuleSetRule[] {
+    const {isDev} = options;
     const svgLoader = {
         test: /\.svg$/i,
         use: ['@svgr/webpack'],
@@ -44,21 +45,7 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
     };
     
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const babelLoader = {
-        test: /\.(js|tsx|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-                'plugins': [
-                    [
-                        'i18next-extract', { locales: ['ru', 'en'], keyAsDefaultValue: true}
-                    ]
-                ]
-            }
-        }
-    };
+    const babelLoader = BabelLoader(options);
   
     const cssLoader = BuildCssLoader(isDev);
     // если без TS, но нужен будет лоудер для jsx babel-loader
