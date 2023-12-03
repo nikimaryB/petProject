@@ -37,6 +37,7 @@ const ProfilePage = ({className}: ProfilePageProps) => {
 
 
     useEffect(() => {
+        console.log({__IS_DEV__});
         if(__PROJECT__ !== 'storybook'){
             dispatch(fetchProfileData());
         }
