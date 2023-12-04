@@ -7,13 +7,13 @@ import {RequireAuth} from './RequireAyrh';
 function AppRouter() {
         
     const renderWithWrapper = useCallback((route: AppRoutesProps ) => {
-        const element = (
+        const element = 
             <Suspense fallback={<LoaderPage/>}>
-                (<div className="page-wrapper">
+                <div className="page-wrapper">
                     {route.element}
-                </div>)
+                </div>
             </Suspense>
-        );
+        ;
         return (
             <Route 
                 key={route.path} 
