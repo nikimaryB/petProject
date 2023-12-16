@@ -101,7 +101,7 @@
       "id": 3,
       "text": "some commentasdasdsad",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     }
   ],
   "users": [
@@ -109,13 +109,15 @@
       "id": 1,
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Front_view_of_a_resting_Canis_lupus_ssp.jpg/250px-Front_view_of_a_resting_Canis_lupus_ssp.jpg"
     },
     {
       "id": 2,
       "username": "admin2",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQUd-89XHdBi98q8An5Fw7UOhNGi-K43khjZmzzHCHiSx6gtswmMfkZcfaQMDeKFlG6Ww&usqp=CAU"
     }
   ],
   "profile": {
