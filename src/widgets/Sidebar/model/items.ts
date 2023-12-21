@@ -5,8 +5,6 @@ import ProfileIcon from 'shared/assets/icons/ProfileIcon.svg';
 import ArticleIcon from 'shared/assets/icons/article-20-20.svg';
 
 
-
-
 export interface SidebarItemType {
     path: string,
     text: string,

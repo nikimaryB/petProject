@@ -1,14 +1,14 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "json-server",
-      "userId": 1
+      "userId": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "json-server",
-      "userId": 2
+      "userId": "2"
     }
   ],
   "articles": [
@@ -86,48 +86,98 @@
   ],
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "text": "some comment",
       "articleId": "1",
       "userId": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "text": "someasdasd comment",
       "articleId": "1",
       "userId": "1"
     },
     {
-      "id": 3,
+      "id": "3",
       "text": "some commentasdasdsad",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test",
+      "id": "4"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test2",
+      "id": "5"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test3",
+      "id": "6"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test 4",
+      "id": "7"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "asdsa",
+      "id": "7uV0V3l"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "aaaaaaaaaaaaaaaaaaaaaaaa",
+      "id": "LHYEofO"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
       "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Front_view_of_a_resting_Canis_lupus_ssp.jpg/250px-Front_view_of_a_resting_Canis_lupus_ssp.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "admin2",
       "password": "123",
       "role": "USER",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQUd-89XHdBi98q8An5Fw7UOhNGi-K43khjZmzzHCHiSx6gtswmMfkZcfaQMDeKFlG6Ww&usqp=CAU"
     }
   ],
-  "profile": {
-    "first": "Nikita",
-    "lastname": "Boriskin",
-    "age": 28,
-    "currency": "RUB",
-    "country": "Armenia",
-    "city": "",
-    "username": "admin",
-    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Front_view_of_a_resting_Canis_lupus_ssp.jpg/250px-Front_view_of_a_resting_Canis_lupus_ssp.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Nikitaaaa",
+      "lastname": "Boriskin",
+      "age": 28,
+      "currency": "RUB",
+      "country": "Armenia",
+      "city": "",
+      "username": "admin",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Front_view_of_a_resting_Canis_lupus_ssp.jpg/250px-Front_view_of_a_resting_Canis_lupus_ssp.jpg"
+    },
+    {
+      "id": "2",
+      "first": "adasdas",
+      "lastname": "Boridasdasdskin",
+      "age": 28,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "",
+      "username": "admin",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQUd-89XHdBi98q8An5Fw7UOhNGi-K43khjZmzzHCHiSx6gtswmMfkZcfaQMDeKFlG6Ww&usqp=CAU"
+    }
+  ]
 }

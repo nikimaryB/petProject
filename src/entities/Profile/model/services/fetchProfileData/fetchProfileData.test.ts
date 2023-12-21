@@ -20,7 +20,7 @@ describe('fetchProfileData', () => {
         
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockResolvedValue(Promise.resolve({ data: data}));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -31,7 +31,7 @@ describe('fetchProfileData', () => {
         
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockResolvedValue(Promise.resolve({ status: '504'}));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
         expect(result.meta.requestStatus).toBe('rejected');
 
     });

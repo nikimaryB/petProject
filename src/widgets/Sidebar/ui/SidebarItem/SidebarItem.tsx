@@ -6,6 +6,7 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { SidebarItemType } from 'widgets/Sidebar/model/items';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
+import { RoutePath } from 'shared/config/RouteConfig/RouteConfig';
 
 
 interface SidebarItemProps {
@@ -21,12 +22,11 @@ export const SidebarItem = memo(({item, collapsed}: SidebarItemProps) => {
     if(item.authOnly && !isAuth){
         return null;
     }
-
     return (
         <AppLink 
             theme={AppLinkTheme.SECONDARY} 
             className={classNames(cls.item, { [cls.collapsed]: collapsed })} 
-            to={item.path}
+            to={item.path + (item.path===RoutePath.profile && isAuth? isAuth?.id : '')}
         >
             <item.Icon className={cls.icon}/>
             <span className={cls.link}>
